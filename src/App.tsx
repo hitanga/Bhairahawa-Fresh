@@ -175,7 +175,7 @@ export default function App() {
 
         {/* WhatsApp Fast Live Assistance bubble float */}
         <a
-          href="https://wa.me/9779802345678?text=Hello%20Bhairahawa%20Fresh%2C%20I%20have%20a%20question%20regarding%20daily%20staples%20availabilty..."
+          href="https://wa.me/9779715716789?text=Hello%20Bhairahawa%20Fresh%2C%20I%20have%20a%20question%20regarding%20daily%20staples%20availabilty..."
           className="w-14 h-14 bg-amber-550 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all cursor-pointer duration-300"
           title="Direct WhatsApp Chat"
           target="_blank"

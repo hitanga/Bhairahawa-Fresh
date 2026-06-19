@@ -20,6 +20,7 @@ export default function CartDrawer({
   onClearCart,
 }: CartDrawerProps) {
   const [deliveryMode, setDeliveryMode] = useState<'Standard' | 'Express'>('Standard');
+  const [deliverySlot, setDeliverySlot] = useState<string>('Morning Slot (7:00 AM - 10:00 AM)');
   const [custName, setCustName] = useState('');
   const [custPhone, setCustPhone] = useState('');
   const [custAddress, setCustAddress] = useState('');
@@ -49,6 +50,7 @@ export default function CartDrawer({
     orderText += `*Phone:* ${custPhone}\n`;
     orderText += `*Address:* ${custAddress}\n`;
     orderText += `*Shipping:* ${deliveryMode} Delivery\n`;
+    orderText += `*Preferred Slot:* ${deliverySlot}\n`;
     orderText += `--------------------------------------\n`;
     
     cartItems.forEach(item => {
@@ -62,7 +64,7 @@ export default function CartDrawer({
     orderText += `Please dispatch my order promptly. Thank you!`;
 
     const encodedText = encodeURIComponent(orderText);
-    const whatsappUrl = `https://wa.me/9779802345678?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/9779715716789?text=${encodedText}`;
 
     // Open WhatsApp link
     window.open(whatsappUrl, '_blank');
@@ -77,6 +79,8 @@ export default function CartDrawer({
     setCustName('');
     setCustPhone('');
     setCustAddress('');
+    setDeliveryMode('Standard');
+    setDeliverySlot('Morning Slot (7:00 AM - 10:00 AM)');
     onClose();
   };
 
@@ -127,6 +131,7 @@ export default function CartDrawer({
                     <div><strong>Phone:</strong> {custPhone}</div>
                     <div><strong>Delivery Route:</strong> {custAddress}</div>
                     <div><strong>Charge Mode:</strong> {deliveryMode} (Rs. {deliveryCharge})</div>
+                    <div><strong>Expected Delivery:</strong> {deliverySlot}</div>
                     <div className="pt-2 text-sm font-semibold text-gray-900">Estimated Invoice: Rs. {grandTotal}</div>
                   </div>
 
@@ -254,7 +259,10 @@ export default function CartDrawer({
                         <div className="grid grid-cols-2 gap-2">
                           <button
                             type="button"
-                            onClick={() => setDeliveryMode('Standard')}
+                            onClick={() => {
+                              setDeliveryMode('Standard');
+                              setDeliverySlot('Morning Slot (7:00 AM - 10:00 AM)');
+                            }}
                             className={`p-2.5 rounded-xl border text-xs font-semibold flex flex-col justify-center items-center transition-all cursor-pointer ${
                               deliveryMode === 'Standard'
                                 ? 'bg-emerald-50 border-emerald-500 text-emerald-800'
@@ -266,7 +274,10 @@ export default function CartDrawer({
                           </button>
                           <button
                             type="button"
-                            onClick={() => setDeliveryMode('Express')}
+                            onClick={() => {
+                              setDeliveryMode('Express');
+                              setDeliverySlot('Express Dispatch (Within 60 Mins)');
+                            }}
                             className={`p-2.5 rounded-xl border text-xs font-semibold flex flex-col justify-center items-center transition-all cursor-pointer ${
                               deliveryMode === 'Express'
                                 ? 'bg-amber-50 border-amber-500 text-amber-800'
@@ -308,6 +319,31 @@ export default function CartDrawer({
                           placeholder="Delivery Address (e.g., Aawa Road, Milanchowk)"
                           className="w-full rounded-xl bg-white border border-gray-200 px-3.5 py-2 text-xs focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500"
                         />
+
+                        {/* Preferred Timeslot Selector */}
+                        <div>
+                          <label className="text-[10px] font-bold text-gray-550 block uppercase tracking-wider mb-1">
+                            Preferred Delivery Time Slot
+                          </label>
+                          {deliveryMode === 'Express' ? (
+                            <div className="w-full bg-amber-50 border border-amber-200 text-amber-800 rounded-xl px-3.5 py-2.5 text-xs font-semibold flex items-center gap-2">
+                              <span className="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
+                              <span>Express Dispatch: Delivered in &lt;60 Minutes</span>
+                            </div>
+                          ) : (
+                            <select
+                              value={deliverySlot}
+                              onChange={(e) => setDeliverySlot(e.target.value)}
+                              className="w-full rounded-xl bg-white border border-gray-200 px-3.5 py-2.5 text-xs focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 font-medium cursor-pointer"
+                            >
+                              <option value="Morning Slot (7:00 AM - 10:00 AM)">Morning Slot (7:00 AM - 10:00 AM)</option>
+                              <option value="Mid-day Slot (10:00 AM - 1:00 PM)">Mid-day Slot (10:00 AM - 1:00 PM)</option>
+                              <option value="Afternoon Slot (1:00 PM - 4:00 PM)">Afternoon Slot (1:00 PM - 4:00 PM)</option>
+                              <option value="Evening Slot (4:00 PM - 7:00 PM)">Evening Slot (4:00 PM - 7:00 PM)</option>
+                              <option value="Night Slot (7:00 PM - 9:00 PM)">Night Slot (7:00 PM - 9:00 PM)</option>
+                            </select>
+                          )}
+                        </div>
 
                         {/* Order Calculation block */}
                         <div className="pt-3 space-y-1.5 text-xs text-gray-550 border-t border-gray-150 mt-4">

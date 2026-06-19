@@ -53,8 +53,8 @@ export default function ContactView() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 text-sm">Phone / WhatsApp</h4>
-                  <a href="tel:+9779802345678" className="text-xs sm:text-sm text-emerald-700 hover:underline block font-semibold mt-1">
-                    +977 9802345678
+                  <a href="tel:+9779715716789" className="text-xs sm:text-sm text-emerald-700 hover:underline block font-semibold mt-1">
+                    +977 9715716789
                   </a>
                   <span className="text-[10px] text-gray-400 block font-medium">Verification pilots respond within 5 mins.</span>
                 </div>

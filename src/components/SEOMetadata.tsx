@@ -21,7 +21,7 @@ export default function SEOMetadata({ currentView }: SEOMetadataProps) {
           "@type": "Store",
           "name": "Bhairahawa Fresh",
           "description": "Premium organic fruits and harvest-fresh vegetables sourced directly from regional farms.",
-          "telephone": "+977-9801234567",
+          "telephone": "+977-9715716789",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Aawa Road",
@@ -103,7 +103,7 @@ export default function SEOMetadata({ currentView }: SEOMetadataProps) {
         break;
       case 'contact':
         title = "Contact Us & Store Location | Bhairahawa Fresh";
-        description = "Find us on Aawa Road, Bhairahawa, Nepal. Call us at +977-9801234567 or send a direct query. We are open daily from 6 AM to 9 PM.";
+        description = "Find us on Aawa Road, Bhairahawa, Nepal. Call us at +977-9715716789 or send a direct query. We are open daily from 6 AM to 9 PM.";
         keywords = "Bhairahawa Fresh phone number, Aawa Road store location, customer care grocery bhairahawa, whatsapp grocery nepal";
         schemaObj = {
           "@context": "https://schema.org",

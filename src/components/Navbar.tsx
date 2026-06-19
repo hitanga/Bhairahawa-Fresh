@@ -72,14 +72,14 @@ export default function Navbar({ currentView, setCurrentView, cartCount, onOpenC
             {/* Quick Contact Links */}
             <div className="hidden sm:flex items-center gap-1 bg-gray-50 p-1 rounded-xl border border-gray-100">
               <a
-                href="tel:+9779802345678"
+                href="tel:+9779715716789"
                 className="w-9 h-9 rounded-lg flex items-center justify-center text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all cursor-pointer"
                 title="Call Store"
               >
                 <Phone className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/9779802345678"
+                href="https://wa.me/9779715716789"
                 className="w-9 h-9 rounded-lg flex items-center justify-center text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all cursor-pointer"
                 title="Chat with Us"
                 target="_blank"
@@ -141,13 +141,13 @@ export default function Navbar({ currentView, setCurrentView, cartCount, onOpenC
               <span className="text-xs text-gray-400">Quick Store Contact:</span>
               <div className="flex gap-2">
                 <a
-                  href="tel:+9779802345678"
+                  href="tel:+9779715716789"
                   className="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-medium text-xs flex items-center gap-1"
                 >
                   <Phone className="w-3.5 h-3.5" /> Call Store
                 </a>
                 <a
-                  href="https://wa.me/9779802345678"
+                  href="https://wa.me/9779715716789"
                   className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-100 font-medium text-xs flex items-center gap-1"
                   target="_blank"
                   rel="noreferrer"
