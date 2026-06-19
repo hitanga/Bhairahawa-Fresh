@@ -192,6 +192,11 @@ export default function CartDrawer({
                                 <img
                                   src={item.product.image}
                                   alt={item.product.name}
+                                  onError={(e) => {
+                                    const target = e.currentTarget;
+                                    target.onerror = null;
+                                    target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=150&auto=format&fit=crop&q=80";
+                                  }}
                                   className="h-full w-full object-contain"
                                 />
                               </div>

@@ -418,10 +418,16 @@ export default function HomeView({ onNavigate, onAddToCart }: HomeViewProps) {
           >
             {/* Background Full-Width Image Container */}
             <div className="absolute inset-0 z-0">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-all duration-700 brightness-[0.82] saturate-[1.1]" 
-                style={{ backgroundImage: `url('${activeSlide.image}')` }}
-              ></div>
+              <img
+                src={activeSlide.image}
+                alt={activeSlide.title}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1600&auto=format&fit=crop&q=80";
+                }}
+                className="w-full h-full object-cover brightness-[0.72] saturate-[1.1] transition-all duration-700 animate-fade-in"
+              />
               <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25"></div>
             </div>
 
@@ -713,6 +719,11 @@ export default function HomeView({ onNavigate, onAddToCart }: HomeViewProps) {
                   <img 
                     src={product.image} 
                     alt={product.name} 
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.onerror = null;
+                      target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=80";
+                    }}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   {product.inStock === 'Limited Stock' && (
@@ -881,6 +892,11 @@ export default function HomeView({ onNavigate, onAddToCart }: HomeViewProps) {
               <img 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQXzJE_Z4jlYiJnHntil4SjDUjKD-wjnk6jIG4CV2hVQwEHwDsd8NzucRXRUkWmVm-DLOUilMJteMU7laA3416rPgb198jniW-kh9K4ciiU8UuFZwNPnSMfeLAtFF2GEkhGEuVB-sn-LqzNzhdOYskja_lOVA7TCKM9AEq9tHZOYkTJ8wErgj_uk5OBlr47lVbDsc71DpAuu9yQ0k37vXZVUC3aXA8WOQ0MqzDzodYvhmZGJOQRF75" 
                 alt="Bhairahawa Fresh Aawa Road Store"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80";
+                }}
                 className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-emerald-950/10"></div>

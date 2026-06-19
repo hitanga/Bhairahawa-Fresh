@@ -217,6 +217,11 @@ export default function ProductsView({ onAddToCart }: ProductsViewProps) {
                 <img 
                   src={p.image} 
                   alt={p.name} 
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.onerror = null;
+                    target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop&q=80";
+                  }}
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 

@@ -155,7 +155,7 @@ export const productsData: Product[] = [
     price: 95,
     inStock: "In Stock",
     isPopular: true,
-    image: "https://images.unsplash.com/photo-1581781870027-04212e231e96?w=400&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1590005354167-6da97870c913?w=400&auto=format&fit=crop&q=80",
     description: "Sulphur-free, clean white sugar crystals sourced directly from regional mills. Dissolves easily, ideal for morning tea and desserts."
   },
   {
@@ -167,7 +167,7 @@ export const productsData: Product[] = [
     price: 25,
     inStock: "In Stock",
     isPopular: true,
-    image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a40?w=400&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1505252585461-04db1ebb846d?w=400&auto=format&fit=crop&q=80",
     description: "Premium iodized salt fortified with vital iodine. Vital for physical and mental development."
   },
   {
@@ -179,7 +179,7 @@ export const productsData: Product[] = [
     price: 115,
     inStock: "In Stock",
     isPopular: true,
-    image: "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=400&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&auto=format&fit=crop&q=80",
     description: "Enriched with cooling crystals that dissolve while brushing to deliver a long-lasting burst of morning breath freshness."
   },
   {
@@ -191,7 +191,7 @@ export const productsData: Product[] = [
     price: 240,
     inStock: "In Stock",
     isPopular: true,
-    image: "https://images.unsplash.com/photo-1612966608967-30931f6aa178?w=400&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=400&auto=format&fit=crop&q=80",
     description: "Nepal's most loved pre-cooked brown noodles. Can be eaten straight from the pack or boiled into soup with taste-maker oils."
   },
 
@@ -232,12 +232,12 @@ export const productsData: Product[] = [
   { id: "pu7", name: "Green Dry Peas", brand: "Local", category: "Pulses", weight: "1 Kg", price: 110, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1547058881-aa0edd92aab3?w=400&auto=format&fit=crop&q=80" },
 
   // SUGAR & SALT GROUP (8 total)
-  { id: "ss1", name: "Organic Brown Sugar", brand: "Prakriti", category: "Sugar/Salt", weight: "1 Kg", price: 180, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1581781870027-04212e231e96?w=400&auto=format&fit=crop&q=80" },
-  { id: "ss2", name: "Jaggery (Sakhar)", brand: "Terai Sweet", category: "Sugar/Salt", weight: "1 Kg", price: 140, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1581781870027-04212e231e96?w=400&auto=format&fit=crop&q=80" },
-  { id: "ss3", name: "Sugar Candy (Mishri)", brand: "Local Premium", category: "Sugar/Salt", weight: "500g", price: 80, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1581781870027-04212e231e96?w=400&auto=format&fit=crop&q=80" },
-  { id: "ss4", name: "Black Rock Salt (Bire Noon)", brand: "Local", category: "Sugar/Salt", weight: "500g", price: 45, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a40?w=400&auto=format&fit=crop&q=80" },
-  { id: "ss5", name: "Himalayan Pink Salt", brand: "Patanjali", category: "Sugar/Salt", weight: "1 Kg", price: 125, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a40?w=400&auto=format&fit=crop&q=80" },
-  { id: "ss6", name: "White Salt Ayo Sunaulo", brand: "Salt Trading", category: "Sugar/Salt", weight: "1 Kg", price: 22, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a40?w=400&auto=format&fit=crop&q=80" },
+  { id: "ss1", name: "Organic Brown Sugar", brand: "Prakriti", category: "Sugar/Salt", weight: "1 Kg", price: 180, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=400&auto=format&fit=crop&q=80" },
+  { id: "ss2", name: "Jaggery (Sakhar)", brand: "Terai Sweet", category: "Sugar/Salt", weight: "1 Kg", price: 140, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=400&auto=format&fit=crop&q=80" },
+  { id: "ss3", name: "Sugar Candy (Mishri)", brand: "Local Premium", category: "Sugar/Salt", weight: "500g", price: 80, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1590005354167-6da97870c913?w=400&auto=format&fit=crop&q=80" },
+  { id: "ss4", name: "Black Rock Salt (Bire Noon)", brand: "Local", category: "Sugar/Salt", weight: "500g", price: 45, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&auto=format&fit=crop&q=80" },
+  { id: "ss5", name: "Himalayan Pink Salt", brand: "Patanjali", category: "Sugar/Salt", weight: "1 Kg", price: 125, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1518110168406-89d5f573afc6?w=400&auto=format&fit=crop&q=80" },
+  { id: "ss6", name: "White Salt Ayo Sunaulo", brand: "Salt Trading", category: "Sugar/Salt", weight: "1 Kg", price: 22, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1505252585461-04db1ebb846d?w=400&auto=format&fit=crop&q=80" },
 
   // TEA & COFFEE GROUP (8 total)
   { id: "tc1", name: "Nepal Orthodox Tea", brand: "Ilam Tea Co", category: "Tea/Coffee", weight: "250g", price: 350, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&auto=format&fit=crop&q=80" },
@@ -276,13 +276,13 @@ export const productsData: Product[] = [
   { id: "d7", name: "Comfort Lily Scent Conditioner", brand: "Comfort", category: "Detergent", weight: "500ml", price: 220, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&auto=format&fit=crop&q=80" },
 
   // PERSONAL CARE GROUP (8 total)
-  { id: "pc1", name: "Dabur Red Ayurvedic Paste", brand: "Dabur", category: "Personal Care", weight: "200g", price: 145, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=400&auto=format&fit=crop&q=80" },
+  { id: "pc1", name: "Dabur Red Ayurvedic Paste", brand: "Dabur", category: "Personal Care", weight: "200g", price: 145, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&auto=format&fit=crop&q=80" },
   { id: "pc2", name: "Clinic Plus Strong Hair Care", brand: "Clinic Plus", category: "Personal Care", weight: "340ml", price: 210, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&auto=format&fit=crop&q=80" },
   { id: "pc3", name: "Head & Shoulders Scalp Refresh", brand: "Head & Shoulders", category: "Personal Care", weight: "180ml", price: 240, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&auto=format&fit=crop&q=80" },
   { id: "pc4", name: "Nivea Soft Protective Moisturizer", brand: "Nivea", category: "Personal Care", weight: "100ml", price: 195, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=80" },
   { id: "pc5", name: "Parachute Jasmine Coconut Oil", brand: "Parachute", category: "Personal Care", weight: "200ml", price: 135, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=80" },
   { id: "pc6", name: "Lifebuoy Lemon Sanitizing Wash", brand: "Lifebuoy", category: "Personal Care", weight: "180ml", price: 95, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=80" },
-  { id: "pc7", name: "Gillette Lime Shave Foam", brand: "Gillette", category: "Personal Care", weight: "200ml", price: 280, inStock: "Out of Stock", isPopular: false, image: "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=400&auto=format&fit=crop&q=80" },
+  { id: "pc7", name: "Gillette Lime Shave Foam", brand: "Gillette", category: "Personal Care", weight: "200ml", price: 280, inStock: "Out of Stock", isPopular: false, image: "https://images.unsplash.com/photo-1593005510509-d05b264f1c9c?w=400&auto=format&fit=crop&q=80" },
 
   // SNACKS GROUP (8 total)
   { id: "sn1", name: "Kurkure Spicy Masala Munch", brand: "Pepe", category: "Snacks", weight: "100g", price: 50, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1599490659213-e2b9527ec087?w=400&auto=format&fit=crop&q=80" },
@@ -291,7 +291,7 @@ export const productsData: Product[] = [
   { id: "sn4", name: "Oreo Creme Double Stuff", brand: "Oreo", category: "Snacks", weight: "120g", price: 45, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1558961309-dbdf717a1e48?w=400&auto=format&fit=crop&q=80" },
   { id: "sn5", name: "Haldiram Bhujia Spicy Sev", brand: "Haldiram", category: "Snacks", weight: "350g", price: 160, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1599490659213-e2b9527ec087?w=400&auto=format&fit=crop&q=80" },
   { id: "sn6", name: "Premium Dryfruit Treat Mixed", brand: "Prakriti Harvest", category: "Snacks", weight: "500g", price: 750, inStock: "Limited Stock", isPopular: false, image: "https://images.unsplash.com/photo-1596560548137-31b0c0edcf9f?w=400&auto=format&fit=crop&q=80" },
-  { id: "sn7", name: "Current Extra Hot Ramen", brand: "Yashoda Food", category: "Snacks", weight: "5 Packs", price: 100, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1612966608967-30931f6aa178?w=400&auto=format&fit=crop&q=80" },
+  { id: "sn7", name: "Current Extra Hot Ramen", brand: "Yashoda Food", category: "Snacks", weight: "5 Packs", price: 100, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=400&auto=format&fit=crop&q=80" },
 
   // BEVERAGES GROUP (8 total)
   { id: "b1", name: "Coca Cola Family Pack", brand: "Coca Cola", category: "Beverages", weight: "2.25 Ltr", price: 250, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&auto=format&fit=crop&q=80" },
@@ -334,8 +334,8 @@ export const productsData: Product[] = [
   { id: "x11", name: "Pure Apple Juice Treat", brand: "Real", category: "Beverages", weight: "1 Ltr", price: 230, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=400&auto=format&fit=crop&q=80" },
   { id: "x12", name: "Baby Wipes Aloevera", brand: "Pampers", category: "Baby Care", weight: "64 Sheets", price: 215, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1515488042361-404e9250afef?w=400&auto=format&fit=crop&q=80" },
   { id: "x13", name: "Glass Polish liquid", brand: "Colin", category: "Household", weight: "250ml", price: 85, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1581578731548-c64695cc6954?w=400&auto=format&fit=crop&q=80" },
-  { id: "x14", name: "Patanjali Dant Kanti Paste", brand: "Patanjali", category: "Personal Care", weight: "200g", price: 120, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=400&auto=format&fit=crop&q=80" },
-  { id: "x15", name: "Wai Wai Chicken Noodles", brand: "CG Foods", category: "Snacks", weight: "75g (pack)", price: 20, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1612966608967-30931f6aa178?w=400&auto=format&fit=crop&q=80" },
+  { id: "x14", name: "Patanjali Dant Kanti Paste", brand: "Patanjali", category: "Personal Care", weight: "200g", price: 120, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&auto=format&fit=crop&q=80" },
+  { id: "x15", name: "Wai Wai Chicken Noodles", brand: "CG Foods", category: "Snacks", weight: "75g (pack)", price: 20, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=400&auto=format&fit=crop&q=80" },
   { id: "x16", name: "Mineral Spring Water", brand: "Aqua", category: "Beverages", weight: "1 Ltr", price: 20, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&auto=format&fit=crop&q=80" },
   { id: "x17", name: "Dettol Liquid Soap Refill", brand: "Dettol", category: "Personal Care", weight: "175ml", price: 110, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=80" },
   { id: "x18", name: "Aashirvaad Multigrain Atta", brand: "Aashirvaad", category: "Flour", weight: "5 Kg", price: 495, inStock: "In Stock", isPopular: false, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&auto=format&fit=crop&q=80" },

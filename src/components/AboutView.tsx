@@ -29,6 +29,11 @@ export default function AboutView() {
             <img 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQXzJE_Z4jlYiJnHntil4SjDUjKD-wjnk6jIG4CV2hVQwEHwDsd8NzucRXRUkWmVm-DLOUilMJteMU7laA3416rPgb198jniW-kh9K4ciiU8UuFZwNPnSMfeLAtFF2GEkhGEuVB-sn-LqzNzhdOYskja_lOVA7TCKM9AEq9tHZOYkTJ8wErgj_uk5OBlr47lVbDsc71DpAuu9yQ0k37vXZVUC3aXA8WOQ0MqzDzodYvhmZGJOQRF75" 
               alt="Bhairahawa Fresh Front Store on Aawa Road" 
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.onerror = null;
+                target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80";
+              }}
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 to-transparent"></div>
