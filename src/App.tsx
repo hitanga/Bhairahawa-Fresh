@@ -9,6 +9,7 @@ import DeliveryView from './components/DeliveryView';
 import OffersView from './components/OffersView';
 import AboutView from './components/AboutView';
 import ContactView from './components/ContactView';
+import SEOMetadata from './components/SEOMetadata';
 import { Product, CartItem } from './types';
 import { MessageSquare, PhoneCall, ArrowUp } from 'lucide-react';
 
@@ -129,6 +130,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans select-none antialiased scroll-smooth">
+      {/* Dynamic SEO Sitemapping Background Worker */}
+      <SEOMetadata currentView={currentView} />
       
       {/* Sticky Premium Glassmorphism Navbar */}
       <Navbar
