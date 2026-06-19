@@ -1,0 +1,8 @@
+{
+  "name": "Bhairahawa Fresh",
+  "description": "Premium Local Grocery Store in Bhairahawa - Fresh groceries, trusted brands, daily essentials, and express home delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

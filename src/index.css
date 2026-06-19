@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+  --color-primary-green: #0d631b;
+  --color-primary-green-container: #2e7d32;
+  --color-accent-orange: #ff9800;
+  
+  /* Brand color additions to resolve invisible text/contrasts */
+  --color-emerald-850: rgb(5, 90, 68);
+  --color-emerald-750: rgb(15, 159, 122);
+  --color-emerald-650: rgb(9, 140, 102);
+  --color-emerald-350: rgb(134, 239, 172);
+  --color-emerald-110: rgb(209, 250, 229);
+  --color-emerald-805: rgb(6, 85, 62);
+  --color-emerald-705: rgb(5, 110, 80);
+  --color-emerald-150: rgb(190, 242, 215);
+  --color-amber-550: rgb(217, 119, 6);
+  --color-gray-905: rgb(17, 24, 39);
+  --color-gray-955: rgb(3, 7, 18);
+  --color-gray-805: rgb(31, 41, 55);
+  --color-gray-650: rgb(63, 73, 88);
+  --color-gray-550: rgb(91, 100, 116);
+  --color-gray-450: rgb(130, 138, 151);
+  --color-gray-205: rgb(218, 221, 226);
+  --color-gray-150: rgb(229, 231, 235);
+  --color-divide-gray-105: rgb(243, 244, 246);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.glass-header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbar for sleek UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
