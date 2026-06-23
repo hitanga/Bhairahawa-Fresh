@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Trash2, Plus, Minus, Check, ShoppingBag, Send, AlertCircle, ShoppingCart } from 'lucide-react';
+import { X, Trash2, Plus, Minus, Check, ShoppingBag, Send, AlertCircle, ShoppingCart, MapPin } from 'lucide-react';
 import { CartItem } from '../types';
 
 interface CartDrawerProps {
@@ -24,14 +24,60 @@ export default function CartDrawer({
   const [custName, setCustName] = useState('');
   const [custPhone, setCustPhone] = useState('');
   const [custAddress, setCustAddress] = useState('');
+  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [fetchingLocation, setFetchingLocation] = useState(false);
+  const [locationError, setLocationError] = useState<string | null>(null);
   const [isOrdered, setIsOrdered] = useState(false);
   const [orderId, setOrderId] = useState('');
+  const [lastWhatsappUrl, setLastWhatsappUrl] = useState<string>('');
+  const [savedDeliveryCharge, setSavedDeliveryCharge] = useState(0);
+  const [savedGrandTotal, setSavedGrandTotal] = useState(0);
 
   if (!isOpen) return null;
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   const deliveryCharge = deliveryMode === 'Express' ? 200 : (subtotal >= 1500 || subtotal === 0 ? 0 : 50);
   const grandTotal = subtotal + deliveryCharge;
+
+  const handleGetLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationError('Geolocation is not supported by your browser.');
+      return;
+    }
+    setFetchingLocation(true);
+    setLocationError(null);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        setCoords({ lat, lng });
+        setFetchingLocation(false);
+        if (!custAddress) {
+          setCustAddress(`GPS: ${lat.toFixed(6)}, ${lng.toFixed(6)}`);
+        } else if (!custAddress.includes('GPS:')) {
+          setCustAddress((prev) => `${prev} (GPS: ${lat.toFixed(6)}, ${lng.toFixed(6)})`);
+        }
+      },
+      (error) => {
+        setFetchingLocation(false);
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            setLocationError('Location permission denied. Please enable location popups.');
+            break;
+          case error.POSITION_UNAVAILABLE:
+            setLocationError('Location information is unavailable on your device.');
+            break;
+          case error.TIMEOUT:
+            setLocationError('GPS lookup timed out. Please retry.');
+            break;
+          default:
+            setLocationError('Error fetching location.');
+            break;
+        }
+      },
+      { enableHighAccuracy: true, timeout: 8000 }
+    );
+  };
 
   const handleCheckout = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,8 +86,15 @@ export default function CartDrawer({
       return;
     }
 
+    if (isOrdered && lastWhatsappUrl) {
+      window.open(lastWhatsappUrl, '_blank');
+      return;
+    }
+
     const genOrderId = 'BF-' + Math.floor(100000 + Math.random() * 900000);
     setOrderId(genOrderId);
+    setSavedDeliveryCharge(deliveryCharge);
+    setSavedGrandTotal(grandTotal);
 
     // Build the WhatsApp message representing the orders
     let orderText = `*BHAIRAHAWA FRESH ORDER [${genOrderId}]*\n`;
@@ -49,6 +102,9 @@ export default function CartDrawer({
     orderText += `*Name:* ${custName}\n`;
     orderText += `*Phone:* ${custPhone}\n`;
     orderText += `*Address:* ${custAddress}\n`;
+    if (coords) {
+      orderText += `*Google Maps Link:* https://www.google.com/maps?q=${coords.lat},${coords.lng}\n`;
+    }
     orderText += `*Shipping:* ${deliveryMode} Delivery\n`;
     orderText += `*Preferred Slot:* ${deliverySlot}\n`;
     orderText += `--------------------------------------\n`;
@@ -66,8 +122,13 @@ export default function CartDrawer({
     const encodedText = encodeURIComponent(orderText);
     const whatsappUrl = `https://wa.me/9779715716789?text=${encodedText}`;
 
+    setLastWhatsappUrl(whatsappUrl);
+
     // Open WhatsApp link
     window.open(whatsappUrl, '_blank');
+
+    // Clear the cart immediately so the main layout/drawer is cleared for any subsequent items
+    onClearCart();
 
     // Display localized order status screen inside modal
     setIsOrdered(true);
@@ -79,6 +140,11 @@ export default function CartDrawer({
     setCustName('');
     setCustPhone('');
     setCustAddress('');
+    setCoords(null);
+    setLastWhatsappUrl('');
+    setSavedDeliveryCharge(0);
+    setSavedGrandTotal(0);
+    setLocationError(null);
     setDeliveryMode('Standard');
     setDeliverySlot('Morning Slot (7:00 AM - 10:00 AM)');
     onClose();
@@ -90,7 +156,7 @@ export default function CartDrawer({
         {/* Backdrop filter blur */}
         <div 
           className="absolute inset-0 bg-gray-900/50 backdrop-blur-sm transition-opacity" 
-          onClick={onClose}
+          onClick={isOrdered ? handleReset : onClose}
         ></div>
 
         <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -107,7 +173,7 @@ export default function CartDrawer({
                   <button
                     type="button"
                     className="rounded-md bg-emerald-800 p-1 text-emerald-100 hover:text-white hover:bg-emerald-900 transition-colors focus:outline-none cursor-pointer"
-                    onClick={onClose}
+                    onClick={isOrdered ? handleReset : onClose}
                   >
                     <X className="h-5 w-5" aria-hidden="true" />
                   </button>
@@ -130,9 +196,9 @@ export default function CartDrawer({
                     <div><strong>Customer Name:</strong> {custName}</div>
                     <div><strong>Phone:</strong> {custPhone}</div>
                     <div><strong>Delivery Route:</strong> {custAddress}</div>
-                    <div><strong>Charge Mode:</strong> {deliveryMode} (Rs. {deliveryCharge})</div>
+                    <div><strong>Charge Mode:</strong> {deliveryMode} (Rs. {savedDeliveryCharge})</div>
                     <div><strong>Expected Delivery:</strong> {deliverySlot}</div>
-                    <div className="pt-2 text-sm font-semibold text-gray-900">Estimated Invoice: Rs. {grandTotal}</div>
+                    <div className="pt-2 text-sm font-semibold text-gray-900">Estimated Invoice: Rs. {savedGrandTotal}</div>
                   </div>
 
                   <p className="text-xs text-paragraph text-gray-500 mb-8 leading-relaxed">
@@ -311,14 +377,89 @@ export default function CartDrawer({
                           placeholder="Phone / WhatsApp Number"
                           className="w-full rounded-xl bg-white border border-gray-200 px-3.5 py-2 text-xs focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500"
                         />
-                        <input
-                          type="text"
-                          required
-                          value={custAddress}
-                          onChange={(e) => setCustAddress(e.target.value)}
-                          placeholder="Delivery Address (e.g., Aawa Road, Milanchowk)"
-                          className="w-full rounded-xl bg-white border border-gray-200 px-3.5 py-2 text-xs focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500"
-                        />
+                        <div className="space-y-1 mt-1">
+                          <div className="flex justify-between items-center px-1">
+                            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                              Delivery Address
+                            </span>
+                            <button
+                              type="button"
+                              onClick={handleGetLocation}
+                              disabled={fetchingLocation}
+                              className="text-[10px] text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-150 px-2 py-0.5 rounded-md font-bold flex items-center gap-1 transition-all cursor-pointer animate-pulse"
+                            >
+                              <MapPin className="w-3 h-3 text-emerald-600 animate-bounce" />
+                              <span>Click here to fill current location</span>
+                            </button>
+                          </div>
+                          
+                          <div className="relative group">
+                            <input
+                              type="text"
+                              required
+                              value={custAddress}
+                              onChange={(e) => setCustAddress(e.target.value)}
+                              placeholder="Delivery Address (e.g., Aawa Road, Milanchowk)"
+                              className="w-full rounded-xl bg-white border border-gray-200 pl-3.5 pr-12 py-2 text-xs focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500"
+                            />
+                            
+                            <div className="absolute right-1.5 top-1/2 -translate-y-1/2 flex items-center">
+                              <button
+                                type="button"
+                                onClick={handleGetLocation}
+                                disabled={fetchingLocation}
+                                className={`p-1.5 rounded-lg text-emerald-600 hover:bg-emerald-50 cursor-pointer transition-colors relative ${fetchingLocation ? 'animate-pulse text-emerald-450' : ''}`}
+                                title="Click here to auto-share GPS location"
+                              >
+                                <MapPin className="w-5 h-5" />
+                              </button>
+                              
+                              {/* Hover Tooltip Box */}
+                              <div className="pointer-events-none absolute bottom-full right-0 mb-2 hidden group-hover:block sm:group-hover:flex flex-col items-center z-50 transition-opacity duration-200">
+                                <span className="bg-gray-900 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg shadow-xl whitespace-nowrap flex items-center gap-1">
+                                  <span className="inline-block w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+                                  Click here to share GPS location!
+                                </span>
+                                <div className="w-2.5 h-2.5 bg-gray-900 rotate-45 -mt-1 rounded-sm mr-2 shadow-xl"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {fetchingLocation && (
+                          <div className="text-[10px] text-emerald-600 font-semibold animate-pulse flex items-center gap-1 pl-1">
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                            Acquiring precise GPS satellite fix...
+                          </div>
+                        )}
+
+                        {coords && !fetchingLocation && (
+                          <div className="text-[10px] text-emerald-700 font-medium bg-emerald-50/50 rounded-xl p-2 flex items-center justify-between border border-emerald-100">
+                            <span className="flex items-center gap-1 pl-0.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                              GPS Linked: {coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setCoords(null);
+                                // remove the GPS text if appended automatically
+                                if (custAddress.includes('GPS:')) {
+                                  setCustAddress(custAddress.split(' (GPS:')[0]);
+                                }
+                              }}
+                              className="text-emerald-800 hover:text-red-600 font-bold transition-colors cursor-pointer text-[10px]"
+                            >
+                              Reset GPS Link
+                            </button>
+                          </div>
+                        )}
+
+                        {locationError && (
+                          <div className="text-[10px] text-amber-700 bg-amber-50 p-2 rounded-xl border border-amber-100 font-semibold">
+                            ⚠️ {locationError}
+                          </div>
+                        )}
 
                         {/* Preferred Timeslot Selector */}
                         <div>

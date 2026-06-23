@@ -842,7 +842,7 @@ export default function HomeView({ onNavigate, onAddToCart }: HomeViewProps) {
                 Get 1 Kg Sugar Free with 25 Kg Rice!
               </h3>
               <p className="text-emerald-100/80 text-sm mb-8 max-w-xl">
-                We're celebrating the harvest season by offering custom kitchen rewards. Claim your promo coupon directly, or let our delivery pilot bundle your products right now.
+                We're celebrating the harvest season by offering custom kitchen rewards. Let our delivery pilot bundle your products right now.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
@@ -858,24 +858,6 @@ export default function HomeView({ onNavigate, onAddToCart }: HomeViewProps) {
                 >
                   Browse Products
                 </button>
-              </div>
-            </div>
-
-            <div className="w-full lg:max-w-sm flex-shrink-0 z-10">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 p-6 text-left">
-                <div className="text-xs uppercase tracking-widest text-emerald-350 font-bold font-mono mb-2">Claim Code inside Card</div>
-                <div className="text-3xl font-extrabold mb-1 font-mono text-amber-400">FRESH15</div>
-                <div className="text-xs text-white/85 mb-4">Get 15% flat off on Baby Care, soaps and Detergents catalog items during checkout.</div>
-                
-                <div className="flex justify-between items-center pt-3 border-t border-white/10 text-xs">
-                  <span className="text-white/60">Validity: Today Only!</span>
-                  <button 
-                    onClick={() => { alert('Discount Code FRESH15 compiled successfully! Copy this code to apply at Checkout.'); }}
-                    className="px-3 py-1 bg-white hover:bg-gray-100 text-emerald-800 rounded-lg font-bold hover:scale-105 transition-all cursor-pointer"
-                  >
-                    Claim Coupon
-                  </button>
-                </div>
               </div>
             </div>
 
